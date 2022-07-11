@@ -54,28 +54,33 @@ def new_game(mistakes=0):
     def hangman():
 
         hangman_drawing = ""
-        if mistakes == 0:
-            hangman_drawing = hangman_pics[0]
-        if mistakes == 1:
-            hangman_drawing = hangman_pics[1]
-        if mistakes == 2:
-            hangman_drawing = hangman_pics[2]
-        if mistakes == 3:
-            hangman_drawing = hangman_pics[3]
-        if mistakes == 4:
-            hangman_drawing = hangman_pics[4]
-        if mistakes == 5:
-            hangman_drawing = hangman_pics[5]
-        if mistakes == 6:
-            hangman_drawing = hangman_pics[6]
-        if mistakes == 7:
-            hangman_drawing = hangman_pics[7]
+        for x in range(0, 8):
+            if mistakes == x:
+                hangman_drawing = hangman_pics[x]
+
+        # old loop
+        # if mistakes == 0:
+        #     hangman_drawing = hangman_pics[0]
+        # if mistakes == 1:
+        #     hangman_drawing = hangman_pics[1]
+        # if mistakes == 2:
+        #     hangman_drawing = hangman_pics[2]
+        # if mistakes == 3:
+        #     hangman_drawing = hangman_pics[3]
+        # if mistakes == 4:
+        #     hangman_drawing = hangman_pics[4]
+        # if mistakes == 5:
+        #     hangman_drawing = hangman_pics[5]
+        # if mistakes == 6:
+        #     hangman_drawing = hangman_pics[6]
+        # if mistakes == 7:
+        #     hangman_drawing = hangman_pics[7]
 
         return hangman_drawing
 
     # = GAME START =
     word = random.choice(words)
-    print(word)  # === testing
+    # print(word)  # === testing
     letters_left = None
     word_len = len(word)
     word_mockup = str("_" * word_len)  # print the hashed word
